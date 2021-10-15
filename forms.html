@@ -1,0 +1,15 @@
+<!-- forms.html -->
+{{if .Success}}
+    <h1>Thanks for your payment!</h1>
+{{else}}
+    <h1>Payment</h1>
+    <form method="POST" action="/payment">
+        <label>Source Account:</label><br />
+        <input type="text" name="sourceAccount"><br />
+        <label>DestinationAccount:</label><br />
+        <input type="text" name="destinationAccount"><br />
+        <label>Amount:</label><br />
+        <textarea name="amount"></textarea><br />
+        <input type="submit" value="payment">
+    </form>
+{{end}}
