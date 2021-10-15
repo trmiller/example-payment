@@ -1,10 +1,11 @@
-package safe_payments
+package payment_server
 
 import (
 	"fmt"
 	"html/template"
 	"net/http"
 	"os"
+	"github.com/trmiller/example-payment/lib/safe_payments"
 )
 
 func homePage(w http.ResponseWriter, r *http.Request) {
@@ -30,6 +31,7 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 func payment(w http.ResponseWriter, r *http.Request) {
 
 	r.ParseForm()
+
 	pd  := PaymentDetails{
 		SourceAccount: r.Form["sourceAccount"]
 		DestinationAccount: r.Form["destinationAccount"]
