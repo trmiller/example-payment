@@ -5,7 +5,7 @@ import (
 	"html/template"
 	"net/http"
 	"os"
-	"github.com/trmiller/example-payment/safe_payments"
+	sf "github.com/trmiller/safe_payments"
 )
 
 func homePage(w http.ResponseWriter, r *http.Request) {
@@ -15,8 +15,8 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 		tmpl.Execute(w, nil)
 		return
 	}
-
-	details := PaymentDetails{
+	
+	details := sf.PaymentDetails{
 		SourceAccount:      r.FormValue("sourceAccount"),
 		DestinationAccount: r.FormValue("destinationAccount"),
 		Amount:             r.FormValue("amount"),
@@ -32,13 +32,13 @@ func payment(w http.ResponseWriter, r *http.Request) {
 
 	r.ParseForm()
 
-	pd  := PaymentDetails{
-		SourceAccount: r.Form["sourceAccount"]
-		DestinationAccount: r.Form["destinationAccount"]
-		Amount: r.Form["amount"]
+	pd  := sf.PaymentDetails{
+		SourceAccount:      r.FormValue("sourceAccount"),
+		DestinationAccount: r.FormValue("destinationAccount"),
+		Amount:             r.FormValue("amount"),
 	}
 
-	//Pay(pd)
+	sf.Pay(&pd)
 
 	//thanks(r,w)
 }
