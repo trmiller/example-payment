@@ -5,8 +5,8 @@ WORKDIR /app
 COPY go.mod ./
 RUN go mod download
 
-COPY *.go ./
-COPY *.html ./
+COPY cmd/payment_server/*.go ./
+COPY html/*.html ./
 
 RUN go build -o /online_banking_example
 
