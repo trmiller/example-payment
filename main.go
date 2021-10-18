@@ -40,7 +40,7 @@ func payment(w http.ResponseWriter, r *http.Request) {
 
 	sf.Pay(&pd)
 
-	//thanks(r,w)
+	thanks(w, r)
 }
 
 func setupRoutes() {
