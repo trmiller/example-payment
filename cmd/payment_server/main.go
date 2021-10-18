@@ -1,11 +1,11 @@
-package payment_server
+package main
 
 import (
 	"fmt"
 	"html/template"
 	"net/http"
 	"os"
-	"github.com/trmiller/example-payment/lib/safe_payments"
+	"github.com/trmiller/example-payment/safe_payments"
 )
 
 func homePage(w http.ResponseWriter, r *http.Request) {

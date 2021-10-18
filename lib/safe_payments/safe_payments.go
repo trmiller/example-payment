@@ -1,4 +1,4 @@
-package payment_server
+package safe_payments
 
 import (
 	"fmt"
